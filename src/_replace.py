@@ -78,7 +78,7 @@ def showLog():
             if btn == QMessageBox.Yes:
                 subprocess.call('explorer %s'%logFile.replace('/', '\\'), shell=True)
 
-def replace():
+def replace(**kwargs):
     if pc.mel.currentRenderer().lower() != 'redshift':
         pc.warning('Set the current renderer to Redshift')
         return
@@ -86,7 +86,10 @@ def replace():
     if not osp.exists(nanoFile):
         pc.warning(nanoFile +' :Does not exist')
         return
-    filePath = r"\\ice-065\Kevrin_Write\ListofNanoShots.csv"
+    filePath = kwargs.get('csvfile')
+    if not filePath:
+        pc.warning('CSV file not specified')
+        return
     data = qutil.getCSVFileData(filePath)
     with open(logFile, 'w') as fh:
         with open(texturesFile, 'w') as tfh:
