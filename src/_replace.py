@@ -155,6 +155,7 @@ def replace(**kwargs):
     showLog()
     btn = msgBox.showMessage(qtfy.getMayaWindow(), title='Replace Ref',
                              msg='Textures file: '+texturesFile,
+                             ques='Do you want to view textures now?',
                              icon=QMessageBox.Information,
                              btns=QMessageBox.Yes|QMessageBox.No)
     if btn == QMessageBox.Yes:
