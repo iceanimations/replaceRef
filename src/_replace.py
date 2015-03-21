@@ -90,6 +90,9 @@ def replace(**kwargs):
     if not filePath:
         pc.warning('CSV file not specified')
         return
+    if not osp.exists(filePath):
+        pc.warning('CSV file does not exist')
+        return
     data = qutil.getCSVFileData(filePath)
     with open(logFile, 'w') as fh:
         with open(texturesFile, 'w') as tfh:
