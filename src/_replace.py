@@ -100,7 +100,7 @@ def replace(**kwargs):
                 try:
                     path = row[0]
                     camera = row[1]
-                    savePath = 'D:/shot_test'#= row[2]
+                    savePath = row[2]
                     name = row[3]
                     texture = row[4]
                 except IndexError:
